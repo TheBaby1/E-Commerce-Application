@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "320498721428",
+    "project_id": "listview-shopphile",
+    "storage_bucket": "listview-shopphile.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320498721428:android:d5ba72d988ae0028de4a81",
+        "android_client_info": {
+          "package_name": "com.example.listview_shopphile_ecommerceapp_ensomo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDnKKKTZILGwdHt573YnMkEB7Ch4DxS1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

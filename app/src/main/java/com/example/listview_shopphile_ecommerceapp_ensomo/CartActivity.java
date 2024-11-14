@@ -19,12 +19,8 @@ public class CartActivity extends AppCompatActivity {
     ImageButton backButton;
     Button checkoutButton;
 
-    ArrayList<Integer> courseImg = new ArrayList<>(Arrays.asList(R.drawable.jacket, R.drawable.joggers,
-            R.drawable.cargo, R.drawable.shoes,
-            R.drawable.shorts, R.drawable.skirt,
-            R.drawable.slimjeans, R.drawable.widepants));
-    ArrayList<String> productNames = new ArrayList<>(Arrays.asList("Penshoppe Jacket", "Jogger Pants", "Cargo Pants", "Penshoppe Shoes", "Orange Shorts",
-            "Midi Skirt", "Slim Jeans", "Wide Pants"));
+    ArrayList<Integer> courseImg = new ArrayList<>();
+    ArrayList<String> productNames = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +29,26 @@ public class CartActivity extends AppCompatActivity {
 
         backButton = (ImageButton)findViewById(R.id.backButton);
         checkoutButton = (Button)findViewById(R.id.checkoutButton);
-
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+        Intent intent = getIntent();
+        int imagePath = intent.getIntExtra("imagePath", -1);
+        String productName = intent.getStringExtra("productName");
+        String productPrice = intent.getStringExtra("productPrice");
+        String itemBrand = intent.getStringExtra("itemBrand");
+
+        if (imagePath != -1) {
+            courseImg.add(imagePath); // No need to parse, it's already an int
+        }
+        if (productName != null) {
+            productNames.add(productName);
+        }
+
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
         CartAdapter adapter = new CartAdapter(CartActivity.this, courseImg, productNames);
-
         recyclerView.setAdapter(adapter);
 
         backButton.setOnClickListener(new View.OnClickListener() {
